@@ -1,0 +1,32 @@
+---
+- name: Sample Ansible Playbook
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Print a simple message
+      debug:
+        msg: "Hello, this is an Ansible debug message!"
+
+    - name: Print Ansible version
+      debug:
+        msg: "Ansible version: {{ ansible_version.full }}"
+
+    - name: Print the current user running the playbook
+      debug:
+        msg: "Current user: {{ ansible_user_id }}"
+
+    - name: Print the hostname
+      debug:
+        msg: "Hostname: {{ ansible_hostname }}"
+
+    - name: Print system information
+      debug:
+        msg: "OS: {{ ansible_distribution }} {{ ansible_distribution_version }} ({{ ansible_architecture }})"
+
+    - name: Print current date and time
+      debug:
+        msg: "Current date and time: {{ ansible_date_time.date }} {{ ansible_date_time.time }}"
+
+    - name: Print environment variables
+      debug:
+        var: ansible_env
